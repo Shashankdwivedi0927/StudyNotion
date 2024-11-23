@@ -24,7 +24,7 @@ app.use(cookieParser());
 app.use(
 	cors({
 		origin:"http://localhost:3000",
-		origin:"https://study-notion-project-sepia.vercel.app",
+		origin:"https://study-notion-flax-eta.vercel.app",
 		credentials:true,
 	})
 )
