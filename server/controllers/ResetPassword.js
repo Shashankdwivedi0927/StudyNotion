@@ -25,7 +25,7 @@ exports.resetPasswordToken = async (req, res) => {
 		);
 		console.log("DETAILS", updatedDetails);
 
-		const url = `https://study-notion-project-sepia.vercel.app/update-password/${token}`;
+		const url = `https://study-notion-flax-eta.vercel.app//update-password/${token}`;
 
 		await mailSender(
 			email,
