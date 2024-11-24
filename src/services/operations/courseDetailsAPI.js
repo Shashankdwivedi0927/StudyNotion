@@ -21,9 +21,31 @@ const {
   DELETE_COURSE_API,
   GET_FULL_COURSE_DETAILS_AUTHENTICATED,
   CREATE_RATING_API,
+  SEARCH_COURSES_API,
   LECTURE_COMPLETION_API,
 } = courseEndpoints
 
+export const searchCourses = async (searchQuery, dispatch) => {
+  // const toastId = toast.loading("Loading...")
+  const toastId = toast.loading("Loading...")
+  let result = null;
+  try {
+    const response = await apiConnector("POST", SEARCH_COURSES_API, {
+      searchQuery: searchQuery,
+    });
+    console.log("SEARCH COURSES API RESPONSE............", response);
+    if (!response?.data?.success) {
+      throw new Error("Could Not Search Courses");
+    }
+    result = response?.data?.data;
+  } catch (error) {
+    console.log("SEARCH COURSES API ERROR............", error);
+    toast.error(error.message);
+  }
+  // toast.dismiss(toastId)
+  toast.dismiss(toastId)
+  return result;
+};
 export const getAllCourses = async () => {
   const toastId = toast.loading("Loading...")
   let result = []
